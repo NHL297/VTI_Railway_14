@@ -60,12 +60,7 @@ question_ID  		INT,
 isCorrect			bool
 );
 
-CREATE TABLE Answer(
-answer_ID 			INT,
-content		 		VARCHAR(50),
-question_ID  		INT,
-isCorrect			bool
-);
+
 
 CREATE TABLE Exam(
 exam_ID 			INT,
