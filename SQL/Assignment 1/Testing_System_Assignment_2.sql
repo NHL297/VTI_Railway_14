@@ -98,7 +98,24 @@ VALUES
 ('456@gmail.com', 'aacount11', 'Nguyễn Anh Tú Linh', '3', '2016-12-12', '3'),
 ('789@gmail.com', 'aacount12', 'Phạm Thị Hương', '3', '2017-12-12', '3'),
 ('111g@gmail.com', 'aacount13', 'Phạm Quỳnh ', '2', '2018-12-12', '3');
-		   
-        
+INSERT INTO `testing_system_assignment_1`.`group` (`group_ID`, `group_Name`, `creator_ID`, `creatdate`) 
+VALUES 	('6',	'Chơi đồ','16','2019-10-12'),
+		('7', 'VLTK', '17', '2019-10-12'),
+		('8', 'Đập đá 2', '18', '2019-10-12'),
+		('9', 'Ăn chơi 2', '19', '2019-10-12');
+INSERT INTO `testing_system_assignment_1`.`answer` ( `content`,`question_ID`,`isCorrect`) 
+VALUES 
+		('Trả lời 2','1','Tạm chấp nhận'),
+		('Trả lời 3','1','Tạm chấp nhận'),
+		('Trả lời 4','1','Cực kì ổn'),
+		('Em thích thì em làm thôi','2','Tạm chấp nhận'),
+		('Vì em cảm thấy hứng thú','2','Tạm chấp nhận');
+INSERT INTO `testing_system_assignment_1`.`exam` ( `code_name`,`title`,`category_ID`,`duration`,`creator_ID`,`createdate`) 
+VALUES 
+		('006','Đề thi số 6','6','60','1','2018-02-02'),
+		('007','Đề thi số 7','7','65 phút','1','2018-02-03'),
+		('008','Đề thi số 8','8','70 phút','2','2017-01-02'),
+		('009','Đề thi số 9','9','50','2','2021-02-02'),
+		('010','Đề thi số 10','10','50','2','2021-02-02');
 
                         
