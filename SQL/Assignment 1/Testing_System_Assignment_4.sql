@@ -31,5 +31,24 @@ WHERE A.AccountID IS NULL;
 SELECT EQ.QuestionID,Q.Content, count(*) AS 'SL' FROM `examquestion`EQ JOIN `question` Q ON EQ.QuestionID = Q.QuestionID  GROUP BY (QuestionID)
 HAVING `SL`= (SELECT MAX(T.SL) FROM (SELECT QuestionID, count(*) AS 'SL' FROM `examquestion` GROUP BY (QuestionID))T);
 
-
 SELECT MAX(T.SL) FROM (SELECT QuestionID, count(*) AS 'SL' FROM `examquestion` GROUP BY (QuestionID))T ;
+
+SELECT * FROM `position` CROSS JOIN `department` order by DepartmentID;
+SELECT T.DepartmentID, T.DepartmentName, T.PositionID,T.PositionName, count(A.PositionID)AS `SL` FROM (SELECT * FROM `position` CROSS JOIN `department` order by DepartmentID) AS `T`
+LEFT JOIN `account` A ON T.DepartmentID = A.DepartmentID AND T.PositionID = A.PositionID GROUP BY T.DepartmentID, T.PositionID;
+
+SELECT DepartmentID FROM Department WHERE DepartmentName = 'Phong Dev 1';
+SELECT * FROM `account` WHERE DepartmentID = (SELECT DepartmentID FROM Department WHERE DepartmentName = 'Phong Dev 1');
+
+
+CREATE VIEW `v_account_full_info` AS 
+	SELECT A.*, DepartmentName AS D_Name, PositionName AS P_Name, COUNT(*) AS `SL_NV` FROM `account` A 
+    JOIN Department USING(DepartmentID) 
+    JOIN `position` USING (PositionID);
+    
+SELECT DepartmentName, DepartmentID FROM `v_account_full_info`;
+
+SELECT MAX(`SL_NV`) FROM `v_account_full_info`;
+
+
+
