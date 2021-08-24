@@ -128,32 +128,38 @@ BEGIN
 DECLARE department_id TINYINT UNSIGNED;
 DECLARE dept_name VARCHAR(50);
 
-SELECT DepartmentID INTO  department_id
-FROM `department`
-WHERE DepartmentName = department_name;
+SELECT 
+    DepartmentID
+INTO department_id FROM
+    `department`
+WHERE
+    DepartmentName = department_name;
 
-UPDATE `account` AS A
-SET A.DepartmentID = '9'
-WHERE A.DepartmentID = department_id;
+UPDATE `account` AS A 
+SET 
+    A.DepartmentID = '9'
+WHERE
+    A.DepartmentID = department_id;
 
 DELETE FROM `DEPARTMENT` 
-WHERE DepartmentName = department_name;
+WHERE
+    DepartmentName = department_name;
 
-SELECT A.AccountID , A.Username , A.Fullname, D.DepartmentName
-FROM `account` AS A
-RIGHT JOIN 
-`department` AS D
-USING (DepartmentID)
-where DepartmentID = '9';
+SELECT 
+    A.AccountID, A.Username, A.Fullname, D.DepartmentName
+FROM
+    `account` AS A
+        RIGHT JOIN
+    `department` AS D USING (DepartmentID)
+WHERE
+    DepartmentID = '9';
 END$$
 DELIMITER ;
 
 CALL question_11('Phong Ky Thuat 1');
-SET SQL_SAFE_UPDATES = 0;
+SET SQL_SAFE_UPDATES = 1;
 
-
-
-
+# Ví dụ xóa account có departmentid = 1 và in ra số lượng account đã xóa
 
 
 
